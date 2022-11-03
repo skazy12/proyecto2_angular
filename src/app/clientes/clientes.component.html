@@ -1,0 +1,76 @@
+
+<div class="row justify-content-center text-center">
+    <div class="col-md-8 col-lg-6">
+            <div class="header">
+                    <h2>NUEVO CLIENTE</h2>
+            </div>
+            
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col" style='border: 5px solid rgba(0, 224, 213, 0.89); background: url("https://s1.1zoom.me/b6353/461/Yamaha_2017_MT-07_Moto_Cage_Night_Moon_515846_1920x1080.jpg") no-repeat center;
+        background-size: cover;'>
+          
+        </div>
+      <div class="col">
+      
+        <form>
+            <div class="mb-3">
+              <label for="" class="form-label">Correo electrónico:</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="correo" [(ngModel)]="clientes.email">
+              <div id="emailHelp" class="form-text">Nunca compartiremos su correo electrónico con nadie más.</div>
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Nombres:</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="nombre" [(ngModel)]="clientes.nombre">
+                
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Apellidos:</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="apellidos" [(ngModel)]="clientes.apellidos">
+                
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Celular:</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="celular" [(ngModel)]="clientes.telefono">
+                
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">CI:</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="ci" [(ngModel)]="clientes.ci">
+                
+              </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Contraseña:</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" name="pass" [(ngModel)]="clientes.password">
+            </div>
+            
+            <div class="col">
+                <label class="form-label">NUESTRAS MOTOS DISPONIBLES</label>
+                <select [(ngModel)]="selectedMoto.id" name="algo" (change)="onSelect($any($event.target).value)">
+                    <option *ngFor="let moto of motos" value="{{moto.id}}">
+                        MARCA: {{moto.marca}} |  MODELO: {{moto.modelo}}
+                    </option>
+
+                    
+                </select>
+                <h4>
+                    <span>Marca: </span>{{selectedMoto.marca}} ||
+                    <span>Precio Original$: </span>{{selectedMoto.precio}}
+                    <br>
+                    <span>{{especificaciondescuento}}</span> ||
+                    <span>NUEVO PRECIO$: </span>{{descuento}}
+                </h4>
+                
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="create()">REGISTRAR</button>
+            
+          </form>
+
+      </div>
+
+    </div>
+
+  </div>
